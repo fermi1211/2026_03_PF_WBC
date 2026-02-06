@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1 - WBC 2026</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WBC 2026 WORLD BASEBALL CLASSIC</h1>
+      <div class="tagline"><span>TOKYO / MIAMI / HOUSTON</span></div>
+
+      <div id="countdown-box">
+        <p>GAME START IN</p>
+        <div class="timer">
+          <div><span id="days">00</span><small>DAYS</small></div>
+          <div><span id="hours">00</span><small>HRS</small></div>
+          <div><span id="minutes">00</span><small>MINS</small></div>
+          <div><span id="seconds">00</span><small>SECS</small></div>
+        </div>
+      </div>
+    </header>
+    <div class="nav-container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="tab-btn"><span>HOME</span></a>
+
+        <a href="day1.html" class="tab-btn active"><span>DAY 1</span></a>
+
+        <a href="day2.html" class="tab-btn"><span>DAY 2</span></a>
+        <a href="day3.html" class="tab-btn"><span>DAY 3</span></a>
+        <a href="day4.html" class="tab-btn"><span>DAY 4</span></a>
+        <a href="day5.html" class="tab-btn"><span>DAY 5</span></a>
+        <a href="day6.html" class="tab-btn"><span>DAY 6</span></a>
+        <a href="day7.html" class="tab-btn"><span>DAY 7</span></a>
+        <a href="day8.html" class="tab-btn"><span>DAY 8</span></a>
+        <a href="day9.html" class="tab-btn"><span>DAY 9</span></a>
+        <a href="day10.html" class="tab-btn"><span>DAY 10</span></a>
+
+        <a href="gear.html" class="tab-btn"><span>GEAR</span></a>
+        <a href="notes.html" class="tab-btn"><span>NOTES</span></a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="section-title">ARRIVAL / WARM UP</h2>
+
+      <div class="day-card">
+        <div class="day-header">
+          <h3>前進東京巨蛋</h3>
+          <span>MARCH 05</span>
+        </div>
+        <div class="day-body">
+          <ul class="activity-list">
+            <li class="activity">
+              <span class="time">09:00</span>
+              <div class="detail-wrapper">
+                <span>桃園機場 TPE 出發</span>
+                <small>中華隊加油！</small>
+              </div>
+            </li>
+
+            <div class="wbc-transit-card">
+              <div class="wbc-transit-header" onclick="toggleTransit(this)">
+                <div class="wbc-th-left">
+                  <div class="wbc-th-route">
+                    <div class="wbc-tag"><span>FLIGHT</span></div>
+                    TPE ➔ NRT
+                  </div>
+                  <div class="wbc-th-time">09:00 - 13:00 (3 HR)</div>
+                </div>
+                <div style="font-size: 1.2rem; transform: rotate(90deg)">❯</div>
+              </div>
+              <div class="wbc-transit-body">
+                <div class="wbc-timeline">
+                  <div class="wbc-row">
+                    <div class="wbc-time">09:00</div>
+                    <div class="wbc-line-col">
+                      <div class="wbc-base-dot"></div>
+                      <div class="wbc-stitch-line"></div>
+                    </div>
+                    <div class="wbc-content">
+                      <div class="wbc-station">桃園機場 TPE</div>
+                      <div class="wbc-info">星宇航空 JX800</div>
+                    </div>
+                  </div>
+                  <div class="wbc-row">
+                    <div class="wbc-time">13:00</div>
+                    <div class="wbc-line-col">
+                      <div
+                        class="wbc-base-dot"
+                        style="background: var(--accent-color)"
+                      ></div>
+                    </div>
+                    <div class="wbc-content">
+                      <div class="wbc-station">東京成田 NRT</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li class="activity">
+              <span class="time">14:00</span>
+              <div class="detail-wrapper">
+                <span>飯店 Check-in</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>2026 WORLD BASEBALL CLASSIC TRIP</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
