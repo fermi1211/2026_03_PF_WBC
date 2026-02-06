@@ -9,91 +9,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-
-    <style>
-      /* --- 首頁專用樣式：賽程儀表板 --- */
-      .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-      }
-
-      /* 每一天的按鈕卡片 */
-      .schedule-card {
-        background: white;
-        border: 2px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 20px;
-        text-decoration: none; /* 去除底線 */
-        transition: all 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* 懸停效果：變色 + 浮起 */
-      .schedule-card:hover {
-        border-color: var(--primary-color);
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 119, 190, 0.2);
-      }
-
-      /* 左側：日期與天數 */
-      .sc-left h3 {
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-        font-style: italic;
-      }
-      .sc-left span {
-        color: #666;
-        font-size: 0.9rem;
-        font-weight: bold;
-        font-family: "Noto Sans TC";
-      }
-
-      /* 右側：箭頭 */
-      .sc-arrow {
-        font-size: 1.5rem;
-        color: var(--secondary-color);
-        font-weight: bold;
-      }
-
-      /* 裝飾：角落的縫線 */
-      .schedule-card::after {
-        content: "";
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        width: 40px;
-        height: 40px;
-        background: var(--secondary-color);
-        transform: rotate(45deg);
-      }
-
-      /* 特別強調：比賽日 (Day 2, Day ?) */
-      .schedule-card.game-day {
-        border-color: var(--secondary-color);
-        background: #fff5f5;
-      }
-      .schedule-card.game-day h3 {
-        color: var(--secondary-color);
-      }
-
-      .section-desc {
-        text-align: center;
-        color: #666;
-        margin-bottom: 20px;
-      }
-    </style>
   </head>
   <body>
     <header>
-      <h1>WBC 2026 WORLD BASEBALL CLASSIC</h1>
-      <div class="tagline"><span>TOKYO / MIAMI / HOUSTON</span></div>
+      <h1>2026 WORLD BASEBALL CLASSIC</h1>
+      <div class="tagline"><span>TOKYO 2026/02/26 - 2026/03/08</span></div>
 
       <div id="countdown-box">
         <p>GAME START IN</p>
@@ -119,27 +39,28 @@
         <a href="page/day8.html" class="tab-btn"><span>DAY 8</span></a>
         <a href="page/day9.html" class="tab-btn"><span>DAY 9</span></a>
         <a href="page/day10.html" class="tab-btn"><span>DAY 10</span></a>
-        <a href="page/gear.html" class="tab-btn"><span>GEAR</span></a>
-        <a href="page/notes.html" class="tab-btn"><span>NOTES</span></a>
+        <a href="page/day11.html" class="tab-btn"><span>DAY 11</span></a>
+        <a href="page/gear.html" class="tab-btn"><span>檢查清單</span></a>
+        <a href="page/notes.html" class="tab-btn"><span>注意事項</span></a>
       </div>
     </div>
 
     <div class="container">
-      <h2 class="section-title">FULL SCHEDULE</h2>
-      <p class="section-desc">點擊下方卡片查看每日詳細戰況</p>
+      <h2 class="section-title">完整行程</h2>
+      <p class="section-desc">點擊下方卡片查看每日詳細行程</p>
 
       <div class="dashboard-grid">
         <a href="page/day1.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 1</h3>
+            <h3>DAY 1 02/26(木)</h3>
             <span>抵達東京 / 熱身</span>
           </div>
           <div class="sc-arrow">❯</div>
         </a>
 
-        <a href="page/day2.html" class="schedule-card game-day">
+        <a href="page/day2.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 2</h3>
+            <h3>DAY 2 02/27(金)</h3>
             <span>⚾️ 台灣 vs 日本</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -147,7 +68,7 @@
 
         <a href="page/day3.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 3</h3>
+            <h3>DAY 3 02/28(土)</h3>
             <span>東京市區觀光</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -155,7 +76,7 @@
 
         <a href="page/day4.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 4</h3>
+            <h3>DAY 4 03/01(日)</h3>
             <span>移動日 / 新幹線</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -163,7 +84,7 @@
 
         <a href="page/day5.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 5</h3>
+            <h3>DAY 5 03/02(月)</h3>
             <span>大阪環球影城</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -171,39 +92,47 @@
 
         <a href="page/day6.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 6</h3>
+            <h3>DAY 6 03/03(火)</h3>
             <span>京都古都巡禮</span>
           </div>
           <div class="sc-arrow">❯</div>
         </a>
 
-        <a href="page/day7.html" class="schedule-card game-day">
+        <a href="page/day7.html" class="schedule-card">
           <div class="sc-left">
-            <h3>DAY 7</h3>
+            <h3>DAY 7 03/04(水)</h3>
             <span>⚾️ 台灣 vs 韓國</span>
           </div>
           <div class="sc-arrow">❯</div>
         </a>
 
-        <a href="page/day8.html" class="schedule-card">
+        <a href="page/day8.html" class="schedule-card game-day">
           <div class="sc-left">
-            <h3>DAY 8</h3>
+            <h3>DAY 8 03/05(木)</h3>
             <span>奈良餵鹿 / 購物</span>
           </div>
           <div class="sc-arrow">❯</div>
         </a>
 
-        <a href="page/day9.html" class="schedule-card">
+        <a href="page/day9.html" class="schedule-card game-day">
           <div class="sc-left">
-            <h3>DAY 9</h3>
+            <h3>DAY 9 03/06(金)</h3>
             <span>最後採買 / 打包</span>
           </div>
           <div class="sc-arrow">❯</div>
         </a>
 
-        <a href="page/day10.html" class="schedule-card">
+        <a href="page/day10.html" class="schedule-card game-day">
           <div class="sc-left">
-            <h3>DAY 10</h3>
+            <h3>DAY 10 03/07(土)</h3>
+            <span>返台 / 榮耀歸國</span>
+          </div>
+          <div class="sc-arrow">❯</div>
+        </a>
+
+        <a href="page/day11.html" class="schedule-card">
+          <div class="sc-left">
+            <h3>DAY 11 03/08(日)</h3>
             <span>返台 / 榮耀歸國</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -211,7 +140,7 @@
 
         <a href="page/gear.html" class="schedule-card" style="border-color: #333">
           <div class="sc-left">
-            <h3 style="color: #333">GEAR</h3>
+            <h3 style="color: #333">檢查清單</h3>
             <span>裝備檢查清單</span>
           </div>
           <div class="sc-arrow">❯</div>
@@ -223,7 +152,7 @@
           style="border-color: #e74c3c"
         >
           <div class="sc-left">
-            <h3 style="color: #e74c3c">NOTES</h3>
+            <h3 style="color: #e74c3c">注意事項</h3>
             <span>注意事項 / 緊急聯絡</span>
           </div>
           <div class="sc-arrow">❯</div>

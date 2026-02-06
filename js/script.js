@@ -73,79 +73,74 @@ checkboxes.forEach((box) => {
   });
 });
 
-// --- 交通卡片折疊功能 ---
-function toggleTransit(headerElement) {
-  // 找到這個 header 的父層 (transit-app-card)
-  const card = headerElement.parentElement;
-  // 切換 'open' 這個 class
-  card.classList.toggle("open");
+/* script.js - 修正路徑版 */
+
+// 1. 交通卡片折疊功能
+function toggleTransit(header) {
+    header.parentElement.classList.toggle('open');
 }
 
-// --- ★★★ 新增：手機左右滑動切換分頁 ★★★ ---
-
-// 1. 定義分頁順序 (請確保這裡的 ID 跟你的 HTML 是一樣的)
-const tabOrder = [
-  "tab-day1",
-  "tab-day2",
-  "tab-day3",
-  "tab-day4",
-  "tab-day5",
-  "tab-day6",
-  "tab-day7",
-  "tab-day8",
-  "tab-day9",
-  "tab-day10",
-  "tab-day11",
-  "tab-checklist", // 行李清單
-  "tab-notes", // 注意事項
+// 2. 頁面滑動切換邏輯
+// 定義所有頁面的順序 (注意：這裡只列出檔名)
+const pageOrder = [
+    'index.html',
+    'day1.html', 'day2.html', 'day3.html', 'day4.html', 'day5.html', 
+    'day6.html', 'day7.html', 'day8.html', 'day9.html', 'day10.html',
+    'gear.html', 'notes.html'
 ];
 
 let touchStartX = 0;
-let touchEndX = 0;
-const minSwipeDistance = 50; // 手指滑動至少 50px 才算數
 
-// 監聽整個網頁的觸控事件
-document.addEventListener(
-  "touchstart",
-  (e) => {
+document.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
-  },
-  false,
-);
+}, false);
 
-document.addEventListener(
-  "touchend",
-  (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  },
-  false,
-);
+document.addEventListener('touchend', e => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const distance = touchEndX - touchStartX;
+    const minSwipe = 60; // 滑動門檻
 
-function handleSwipe() {
-  // 計算滑動距離
-  const distance = touchEndX - touchStartX;
+    // 取得當前頁面的檔名
+    let path = window.location.pathname;
+    let currentPage = path.split("/").pop();
+    
+    // 如果是空字串或 /，代表是 index.html
+    if (currentPage === "" || currentPage === "/") currentPage = "index.html";
 
-  // 判斷目前是哪個分頁
-  const currentTabId = document.querySelector(".tab-content.active").id;
-  const currentIndex = tabOrder.indexOf(currentTabId);
+    const currentIndex = pageOrder.indexOf(currentPage);
 
-  if (Math.abs(distance) > minSwipeDistance) {
-    // 向左滑 (距離是負的) -> 下一頁
-    if (distance < 0) {
-      if (currentIndex < tabOrder.length - 1) {
-        openTab(tabOrder[currentIndex + 1]);
-      } else {
-        // (選用) 如果想循環回第一頁，請打開下面這行
-        // openTab(tabOrder[0]);
-      }
+    // 判斷目前是否在 page 資料夾內 (透過路徑是否包含 '/page/')
+    const isInPageFolder = path.includes("/page/");
+
+    if (Math.abs(distance) > minSwipe && currentIndex !== -1) {
+        
+        // --- 向左滑 (下一頁) ---
+        if (distance < 0 && currentIndex < pageOrder.length - 1) {
+            const nextPage = pageOrder[currentIndex + 1];
+            
+            // 邏輯 A: 從首頁(根目錄) -> 去 page 資料夾
+            if (currentPage === "index.html") {
+                window.location.href = "page/" + nextPage;
+            } 
+            // 邏輯 B: 都在 page 資料夾內切換
+            else {
+                window.location.href = nextPage;
+            }
+        }
+        
+        // --- 向右滑 (上一頁) ---
+        if (distance > 0 && currentIndex > 0) {
+            const prevPage = pageOrder[currentIndex - 1];
+
+            // 邏輯 C: 要回到首頁 (從 day1 -> index)
+            if (prevPage === "index.html") {
+                // 如果目前在 page 資料夾，要往上一層找
+                window.location.href = "../index.html";
+            } 
+            // 邏輯 D: 都在 page 資料夾內切換
+            else {
+                window.location.href = prevPage;
+            }
+        }
     }
-
-    // 向右滑 (距離是正的) -> 上一頁
-    if (distance > 0) {
-      if (currentIndex > 0) {
-        openTab(tabOrder[currentIndex - 1]);
-      }
-    }
-  }
-}
+}, false);
